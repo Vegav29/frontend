@@ -1,10 +1,27 @@
 {
-    "version": 2,
-    "routes": [
-      { "src": "/api/identify", "dest": "api/identify.js" },
-      { "src": "/", "dest": "api/index.js" }
-    ],
-    "builds": [
-      { "src": "index.js", "use": "@vercel/node" }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
