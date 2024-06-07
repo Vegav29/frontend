@@ -152,7 +152,7 @@
                     .then(data => {
                         console.log('Server Response:', data);
 
-                        // Updated response handling
+                        
                         const responseContainer = document.getElementById('responseContainer');
                         responseContainer.innerHTML = `
                             <p>Status: ${data.primaryContactId ? 'Success' : 'Error'}</p>
